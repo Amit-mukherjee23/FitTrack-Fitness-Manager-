@@ -1,6 +1,4 @@
-// =========================
-// FITTRACK - PROFILE SETUP
-// =========================
+
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -9,9 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
     setupForm.addEventListener("submit", function (event) {
 
         event.preventDefault();
-
-
-        // Get user information
 
         const name =
             document.getElementById("setupName").value.trim();
@@ -24,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("setupWeight").value.trim();
 
 
-        // Name is required
+    
 
         if (!name) {
 
@@ -33,13 +28,12 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        // Clear old user's data
+    
 localStorage.removeItem("userWeight");
 localStorage.removeItem("weightHistory");
 localStorage.removeItem("workoutHistory");
 
 
-// Save initial weight
 if (weight) {
 
     localStorage.setItem(
@@ -60,9 +54,6 @@ if (weight) {
     );
 }
 
-
-        // Create profile object
-
         const profile = {
 
             name: name,
@@ -76,7 +67,7 @@ if (weight) {
         };
 
 
-        // Save profile
+  
 
         localStorage.setItem(
             "fitTrackProfile",
@@ -84,7 +75,7 @@ if (weight) {
         );
 
 
-        // Go to Home page
+    
 
         window.location.href = "index.html";
 

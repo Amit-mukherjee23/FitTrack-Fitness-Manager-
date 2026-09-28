@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FitTrack - Fitness Management</title>
+
+       <script>
+    const profile = localStorage.getItem("fitTrackProfile");
+
+    if (!profile) {
+        window.location.href = "setup.html";
+    }
+</script>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"> 
+
+
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            FitTrack
+        </div>
+
+        <div class="nav-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="workout.html">Workout</a>
+
+            <a href="progress.html">Progress</a>
+
+            <a href="goals.html">Goals</a>
+
+            <a href="profile.html">Profile</a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="container">
+
+
+        <!-- HERO SECTION -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <p class="welcome-text">
+                    WELCOME BACK
+                </p>
+<h1>Hello, <span id="homeUserName"></span>! 👋</h1>
+
+                <p class="hero-description">
+                    Stay consistent, track your progress,
+                    and keep moving towards your fitness goals.
+                </p>
+
+                <button
+                    class="primary-button"
+                    onclick="startWorkout()"
+                >
+                    Start Today's Workout
+                </button>
+
+            </div>
+
+            <div class="hero-icon">
+                💪
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             STATISTICS
+        ========================== -->
+
+        <section class="stats-section">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🏋️
+                </div>
+
+                <div>
+                    <h2 id="totalWorkouts">
+                        12
+                    </h2>
+
+                    <p>
+                        Total Workouts
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🔥
+                </div>
+
+                <div>
+                    <strong id="totalCalories">0</strong>
+
+                    <p>
+                        Calories Burned
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- <div class="stat-card">
+
+                <div class="stat-icon">
+                    ⏱️
+                </div>
+
+                <div>
+                    <h2>
+                        8h
+                    </h2>
+
+                    <p>
+                        Training Time
+                    </p>
+                </div>
+
+            </div> -->
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🎯
+                </div>
+
+                <div>
+                    <h2 id="goalProgress">
+                        68%
+                    </h2>
+
+                    <p>
+                        Goal Progress
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             TODAY'S WORKOUT
+        ========================== -->
+
+    <section class="workout-section">
+
+    <div class="section-title">
+
+        <div>
+
+            <p>
+                TODAY'S WORKOUT
+            </p>
+
+            <h2 id="todayWorkoutTitle">
+                Loading...
+            </h2>
+
+        </div>
+
+        <a
+            href="workout.html"
+            class="secondary-button"
+        >
+            View Workout
+        </a>
+
+    </div>
+
+
+    <div class="workout-card">
+
+        <div class="workout-card-header">
+
+            <div>
+
+                <span
+                    class="workout-label"
+                    id="todayWorkoutLabel"
+                >
+                    WORKOUT
+                </span>
+
+                <h2 id="todayWorkoutName">
+                    Loading...
+                </h2>
+
+                <p id="todayWorkoutDescription">
+                    Loading today's workout...
+                </p>
+
+            </div>
+
+            <div class="workout-image">
+                🏋️
+            </div>
+
+        </div>
+
+
+        <!-- Exercises will appear here -->
+
+        <div id="todayExerciseList">
+
+            <div class="exercise-item">
+
+                <div class="exercise-number">
+                    01
+                </div>
+
+                <div>
+                    <h3>Loading...</h3>
+                    <p>Please wait...</p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="primary-button full-button"
+            onclick="startWorkout()"
+        >
+            Start Workout
+        </button>
+
+    </div>
+
+</section>
+
+
+        <!-- =========================
+             WEEKLY PROGRESS
+        ========================== -->
+
+        <section class="progress-section">
+
+            <div class="section-title">
+
+                <div>
+
+                    <p>
+                        THIS WEEK
+                    </p>
+
+                    <h2>
+                        Weekly Progress
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="progress-card">
+
+                <div class="progress-header">
+
+                    <div>
+
+                    <strong id="weeklyWorkoutCount">
+                    0 / 6
+                    </strong>
+
+                        <p>
+                            Workouts completed
+                        </p>
+
+                    </div>
+
+                    <strong id="weeklyProgressPercentage">
+                        0%
+                    </strong>
+
+                </div>
+
+
+            <div class="progress-bar">
+
+    <div
+        id="weeklyProgressFill"
+        class="progress-fill"
+        style="width: 0%;"
+    ></div>
+
+</div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             FITNESS GOALS
+        ========================== -->
+
+        <section class="goals-section">
+
+            <!-- <div class="section-title">
+
+            <div class="goal-card">
+            <h3 id="homeFitnessGoal">Build Strength</h3>
+            <p>Your current fitness goal</p>
+            </div> -->
+<!-- 
+            </div> -->
+
+
+            <div class="goal-container">
+
+
+                <div class="home-goal-card">
+
+                    <div class="goal-icon">
+                        💪
+                    </div>
+
+                    <h3 id="homeFitnessGoal">
+                        Build Strength
+                    </h3>
+
+                    <p>
+                        Improve your overall strength.
+                    </p>
+
+                <div class="goal-bar">
+
+                <div
+                    id="homeGoalProgressBar"
+                    style="width: 0%;"
+                ></div>
+
+                </div>
+
+                <small id="homeGoalProgressText">
+                    0% completed
+                </small>
+
+                </div>
+
+
+                <div class="home-goal-card">
+
+                    <div class="goal-icon">
+                        🔥
+                    </div>
+
+                    <h3>
+                        Stay Consistent
+                    </h3>
+
+                    <p>
+                        Keep following your workout routine.
+                    </p>
+
+                    <div class="goal-bar">
+
+                    <div
+                        id="homeConsistencyProgressBar"
+                        style="width: 0%;"
+                    ></div>
+
+                    </div>
+
+                    <small id="homeConsistencyProgressText">
+                        0% completed
+                    </small>
+
+                    </div>
+
+
+                   <div class="home-goal-card">
+
+                    <div class="goal-icon">
+                        🎯
+                    </div>
+
+                    <h3>
+                        Fitness Journey
+                    </h3>
+
+                    <p>
+                        Keep making steady progress.
+                    </p>
+
+                    <div class="goal-bar">
+
+                        <div
+                         id="homeFitnessProgressBar"
+                          style="width: 0%;"
+                  ></div>
+
+</div>
+
+<small id="homeFitnessProgressText">
+    0% completed
+</small>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+          The pain you feel today will be the strength you feel tomorrow.
+        </p>
+
+    </footer>
+
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

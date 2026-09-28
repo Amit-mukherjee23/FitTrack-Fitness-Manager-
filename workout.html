@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>FitTrack - Workout</title>
+    <script>
+    const profile = localStorage.getItem("fitTrackProfile");
+
+    if (!profile) {
+        window.location.href = "setup.html";
+    }
+</script>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"> 
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            FitTrack
+        </div>
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="workout.html">
+                Workout
+            </a>
+
+            <a href="progress.html">
+                Progress
+            </a>
+
+            <a href="goals.html">
+                Goals
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main class="container">
+
+
+        <!-- PAGE HEADER -->
+
+        <section class="workout-page-header">
+
+            <p class="section-label">
+                TODAY'S TRAINING
+            </p>
+
+            <h1 id="workoutTitle">
+                Loading...
+            </h1>
+
+            <p id="workoutDescription">
+                Loading today's workout...
+            </p>
+
+        </section>
+
+
+
+        <!-- =========================
+             WORKOUT PROGRESS
+        ========================== -->
+
+        <section class="progress-card workout-progress-card">
+
+            <div class="progress-header">
+
+                <div>
+
+                    <strong id="exerciseProgress">
+                        0 of 0 exercises completed
+                    </strong>
+
+                    <p>
+                        Complete all exercises to finish your workout.
+                    </p>
+
+                </div>
+
+                <strong id="progressPercentage">
+                    0%
+                </strong>
+
+            </div>
+
+
+            <div class="progress-bar">
+
+                <div
+                    id="workoutProgress"
+                    class="progress-fill"
+                    style="width: 0%;">
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             EXERCISES
+        ========================== -->
+
+        <section class="workout-section">
+
+            <div class="section-title">
+
+                <div>
+
+                    <p>
+                        EXERCISES
+                    </p>
+
+                    <h2>
+                        Today's Exercises
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="exerciseContainer"
+                class="workout-card">
+            </div>
+
+
+            <button
+                class="primary-button full-button complete-button"
+                onclick="completeWorkout()">
+
+                Complete Workout
+
+            </button>
+
+        </section>
+
+        <!-- =========================
+     WORKOUT COUNTDOWN TIMER
+========================= -->
+
+<section class="timer-section">
+
+    <div class="section-title">
+
+        <div>
+
+            <p>
+                WORKOUT TIMER
+            </p>
+
+            <h2>
+                Set Workout Time
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="timer-card">
+
+        <!-- Time Input -->
+
+        <div class="workout-time-input">
+
+            <div>
+
+                <label for="workoutMinutes">
+                    Minutes
+                </label>
+
+                <input
+                    type="number"
+                    id="workoutMinutes"
+                    min="0"
+                    max="120"
+                    value="0"
+                >
+
+            </div>
+
+
+            <div>
+
+                <label for="workoutSeconds">
+                    Seconds
+                </label>
+
+                <input
+                    type="number"
+                    id="workoutSeconds"
+                    min="0"
+                    max="59"
+                    value="30"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- Countdown Display -->
+
+        <h1 id="workoutTimer">
+            00:30
+        </h1>
+
+
+        <!-- Buttons -->
+
+        <div class="timer-buttons">
+
+            <button
+                type="button"
+                class="primary-button"
+                onclick="startWorkoutTimer()"
+            >
+                Start
+            </button>
+
+
+            <button
+                type="button"
+                class="secondary-button"
+                onclick="resetWorkoutTimer()"
+            >
+                Reset
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+        
+
+
+
+        <!-- =========================
+             REST TIMER
+        ========================== -->
+
+        <section class="timer-section">
+
+            <div class="section-title">
+
+                <div>
+
+                    <p>
+                        RECOVERY
+                    </p>
+
+                    <h2>
+                        Rest Timer
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="timer-card">
+
+                <h1 id="timer">
+                    01:00
+                </h1>
+
+
+                <div class="timer-buttons">
+
+                    <button
+                        class="primary-button"
+                        onclick="startTimer()">
+
+                        Start
+
+                    </button>
+
+
+                    <button
+                        class="secondary-button"
+                        onclick="resetTimer()">
+
+                        Reset
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             WEEKLY PLAN
+        ========================== -->
+
+        <section class="weekly-workout-section">
+
+            <div class="section-title">
+
+                <div>
+
+                    <p>
+                        WEEKLY PLAN
+                    </p>
+
+                    <h2>
+                        Your Weekly Workout
+                    </h2>
+
+                    <p>
+                        Follow your workout schedule throughout the week.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="weeklyWorkoutPlan"
+                class="weekly-workout-grid">
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+             Don't complain, enjoy the pain.
+        </p>
+
+    </footer>
+
+
+
+    <script src="js/workout.js"></script>
+
+</body>
+
+</html>

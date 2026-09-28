@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Goals - FitTrack</title>
+    <script>
+    const profile = localStorage.getItem("fitTrackProfile");
+
+    if (!profile) {
+        window.location.href = "setup.html";
+    }
+</script>
+
+    <link rel="stylesheet" href="css/style.css">
+   
+
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            FitTrack
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="workout.html">
+                Workout
+            </a>
+
+            <a href="progress.html">
+                Progress
+            </a>
+
+            <a href="goals.html" class="active">
+                Goals
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- ================= PAGE HEADER ================= -->
+
+    <section class="page-header">
+
+        <h1>
+            My Fitness Goals 🎯
+        </h1>
+
+        <p>
+            Track your fitness goals and monitor your progress.
+        </p>
+
+    </section>
+
+
+
+    <!-- ================= GOALS CONTAINER ================= -->
+
+    <main class="goals-container">
+
+
+        <!-- ================= WEEKLY WORKOUT GOAL ================= -->
+
+        <div class="home-goal-card">
+
+            <div class="goal-header">
+
+                <div>
+
+                    <h2>
+                        Weekly Workout Goal
+                    </h2>
+
+                    <p>
+                        Complete 6 workouts every week
+                    </p>
+
+                </div>
+
+
+                <span class="goal-icon">
+                    🏋️
+                </span>
+
+            </div>
+
+
+
+            <div class="goal-progress">
+
+                <div class="goal-progress-text">
+
+                    <span id="weeklyGoalText">
+                        0 / 6 workouts
+                    </span>
+
+                    <strong id="weeklyGoalPercentage">
+                        0%
+                    </strong>
+
+                </div>
+
+
+                <div class="goal-progress-bar">
+
+                    <div
+                        id="weeklyGoalBar"
+                        class="goal-progress-fill"
+                        style="width: 0%;"
+                    >
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p
+                id="weeklyGoalStatus"
+                class="goal-status"
+            >
+                Start your first workout!
+            </p>
+
+        </div>
+
+
+
+        <!-- ================= CALORIE GOAL ================= -->
+
+        <div class="home-goal-card">
+
+            <div class="goal-header">
+
+                <div>
+
+                    <h2>
+                        Calorie Burn Goal
+                    </h2>
+
+                    <p>
+                        Track calories burned through workouts
+                    </p>
+
+                </div>
+
+
+                <span class="goal-icon">
+                    🔥
+                </span>
+
+            </div>
+
+
+
+            <div class="goal-progress">
+
+                <div class="goal-progress-text">
+
+                    <span id="calorieGoalText">
+                        0 / 1500 calories
+                    </span>
+
+                    <strong id="calorieGoalPercentage">
+                        0%
+                    </strong>
+
+                </div>
+
+
+                <div class="goal-progress-bar">
+
+                    <div
+                        id="calorieGoalBar"
+                        class="goal-progress-fill"
+                        style="width: 0%;"
+                    >
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p
+                id="calorieGoalStatus"
+                class="goal-status"
+            >
+                Keep training consistently!
+            </p>
+
+        </div>
+
+
+
+        <!-- ================= CONSISTENCY GOAL ================= -->
+
+        <div class="home-goal-card">
+
+            <div class="goal-header">
+
+                <div>
+
+                    <h2>
+                        Stay Consistent
+                    </h2>
+
+                    <p>
+                        Build a regular workout habit
+                    </p>
+
+                </div>
+
+
+                <span class="goal-icon">
+                    📅
+                </span>
+
+            </div>
+
+
+
+            <div class="goal-progress">
+
+                <div class="goal-progress-text">
+
+                    <span id="consistencyGoalText">
+                        0 workout days
+                    </span>
+
+                    <strong id="consistencyGoalPercentage">
+                        0%
+                    </strong>
+
+                </div>
+
+
+                <div class="goal-progress-bar">
+
+                    <div
+                        id="consistencyGoalBar"
+                        class="goal-progress-fill"
+                        style="width: 0%;"
+                    >
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p
+                id="consistencyGoalStatus"
+                class="goal-status"
+            >
+                Complete workouts regularly to build consistency.
+            </p>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <p>
+           The real workout starts when you want to stop. – Ronnie Coleman
+        </p>
+
+    </footer>
+
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="js/goals.js"></script>
+
+
+</body>
+
+</html>

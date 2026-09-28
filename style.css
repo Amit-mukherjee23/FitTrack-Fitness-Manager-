@@ -1,6 +1,4 @@
-/* =========================
-   RESET
-========================= */
+
 
 * {
     margin: 0;
@@ -8,22 +6,12 @@
     box-sizing: border-box;
 }
 
-
-/* =========================
-   BODY
-========================= */
-
 body {
     font-family: Arial, Helvetica, sans-serif;
     background: #f5f6f8;
     color: #1f1f1f;
     line-height: 1.5;
 }
-
-
-/* =========================
-   NAVBAR
-========================= */
 
 .navbar {
     height: 70px;
@@ -64,20 +52,12 @@ body {
 }
 
 
-/* =========================
-   MAIN
-========================= */
 
 .container {
     width: 86%;
     max-width: 1200px;
     margin: auto;
 }
-
-
-/* =========================
-   HERO
-========================= */
 
 .hero {
     margin-top: 45px;
@@ -119,10 +99,6 @@ body {
     font-size: 110px;
 }
 
-
-/* =========================
-   BUTTONS
-========================= */
 
 .primary-button {
     border: none;
@@ -166,11 +142,6 @@ body {
     margin-top: 20px;
 }
 
-
-/* =========================
-   STATISTICS
-========================= */
-
 .stats-section {
     display: grid;
 
@@ -213,10 +184,6 @@ body {
 }
 
 
-/* =========================
-   SECTIONS
-========================= */
-
 .workout-section,
 .progress-section,
 .goals-section {
@@ -245,11 +212,6 @@ body {
     margin-top: 5px;
     font-size: 27px;
 }
-
-
-/* =========================
-   WORKOUT CARD
-========================= */
 
 .workout-card {
     background: white;
@@ -293,12 +255,6 @@ body {
 .workout-image {
     font-size: 65px;
 }
-
-
-/* =========================
-   EXERCISE
-========================= */
-
 .exercise-item {
     display: flex;
 
@@ -337,12 +293,6 @@ body {
     color: #777;
     font-size: 14px;
 }
-
-
-/* =========================
-   PROGRESS
-========================= */
-
 .progress-card {
     background: white;
 
@@ -390,11 +340,6 @@ body {
     border-radius: 10px;
     transition : widht 0.5s ease;
 }
-
-
-/* =========================
-   GOALS
-========================= */
 
 .goal-container {
     display: grid;
@@ -448,12 +393,6 @@ body {
 
     margin-top: 8px;
 }
-
-
-/* =========================
-   FOOTER
-========================= */
-
 footer {
     background: white;
 
@@ -467,12 +406,6 @@ footer {
 
     font-size: 14px;
 }
-
-
-/* =========================
-   RESPONSIVE
-========================= */
-
 @media (max-width: 850px) {
 
     .stats-section {
@@ -527,10 +460,6 @@ footer {
     }
 }
 
-/* =========================
-   WORKOUT PAGE
-========================= */
-
 .workout-page-header {
     margin-top: 45px;
     margin-bottom: 30px;
@@ -546,7 +475,7 @@ footer {
 }
 
 
-/* Exercise */
+
 
 .workout-exercise {
     display: flex;
@@ -604,9 +533,6 @@ footer {
 .completed-exercise .exercise-info h3 {
     text-decoration: line-through;
 }
-
-
-/* Timer */
 
 .timer-section {
     margin-top: 55px;
@@ -703,9 +629,6 @@ footer {
     margin-top: 15px;
 }
 
-
-/* Rest Day */
-
 .rest-day-message {
     text-align: center;
     padding: 50px 20px;
@@ -764,9 +687,6 @@ footer {
 
 }
 
-/* =========================
-   PROGRESS PAGE
-========================= */
 
 .stats-grid {
     display: grid;
@@ -895,7 +815,7 @@ footer {
 }
 
 
-/* Weekly Plan */
+
 
 .weekly-plan {
     display: grid;
@@ -947,7 +867,6 @@ footer {
 }
 
 
-/* Responsive */
 
 @media (max-width: 900px) {
 
@@ -982,9 +901,6 @@ footer {
 
 }
 
-/* =========================
-   EXERCISE CHECKBOX STYLE
-========================= */
 
 .exercise-check {
     display: flex;
@@ -1025,8 +941,6 @@ footer {
 }
 
 
-/* Workout exercise container */
-
 .workout-card {
     background: white;
     border-radius: 18px;
@@ -1039,14 +953,13 @@ footer {
 }
 
 
-/* Hover effect */
 
 .exercise-check:hover {
     background: #f8f8f8;
 }
 
 
-/* Mobile */
+
 
 @media (max-width: 600px) {
 
@@ -1064,9 +977,6 @@ footer {
     }
 }
 
-/* =========================
-   GOALS PAGE
-========================= */
 
 .page-header {
     text-align: center;
@@ -1189,9 +1099,7 @@ footer {
 }
 
 
-/* =========================
-   GOALS RESPONSIVE
-========================= */
+
 
 @media (max-width: 768px) {
 
@@ -1227,9 +1135,7 @@ footer {
 
 }
 
-/* =========================
-   PROFILE PAGE
-========================= */
+
 
 .profile-container {
     width: 90%;
@@ -1243,9 +1149,6 @@ footer {
 }
 
 
-/* =========================
-   PROFILE CARD
-========================= */
 
 .profile-card {
     background: #ffffff;
@@ -1294,9 +1197,6 @@ footer {
 }
 
 
-/* =========================
-   PROFILE STATS
-========================= */
 
 .profile-stats {
     display: grid;
@@ -1333,10 +1233,6 @@ footer {
     font-size: 12px;
 }
 
-
-/* =========================
-   PROFILE FORM
-========================= */
 
 .profile-form-card {
     background: #ffffff;

@@ -1,6 +1,4 @@
-// =========================
-// PROGRESS PAGE
-// =========================
+
 
 document.addEventListener("DOMContentLoaded", function () {
     loadProgress();
@@ -10,24 +8,15 @@ document.addEventListener("DOMContentLoaded", function () {
     displayWeightHistory();
 });
 
-
-// =========================
-// LOAD PROGRESS
-// =========================
-
 function loadProgress() {
     const history = JSON.parse(localStorage.getItem("workoutHistory")) || [];
 
-    // Total workouts
     document.getElementById("totalWorkouts").textContent = history.length;
-
-    // Weekly workouts
+    
     const weeklyWorkouts = getThisWeekWorkouts(history);
     document.getElementById("weeklyWorkouts").textContent =
         weeklyWorkouts.length;
 
-    // Goal progress
-    // Goal = 6 workouts per week
     let goal = Math.min(
         Math.round((weeklyWorkouts.length / 6) * 100),
         100
@@ -40,8 +29,6 @@ function loadProgress() {
 if (progressFill) {
     progressFill.style.width = goal + "%";
 }
-
-    // Calories
     let totalCalories = 0;
 
     history.forEach(function (workout) {
@@ -52,15 +39,9 @@ if (progressFill) {
         totalCalories;
 }
 
-
-// =========================
-// THIS WEEK WORKOUTS
-// =========================
-
 function getThisWeekWorkouts(history) {
     const today = new Date();
 
-    // Get Sunday of current week
     const startOfWeek = new Date(today);
     startOfWeek.setDate(today.getDate() - today.getDay());
     startOfWeek.setHours(0, 0, 0, 0);
@@ -72,8 +53,7 @@ function getThisWeekWorkouts(history) {
 
         let workoutDate;
 
-        // New ISO date format
-        if (workout.date && workout.date.includes("T")) {
+   if (workout.date && workout.date.includes("T")) {
             workoutDate = new Date(workout.date);
         } 
         // Old Indian date format: DD/MM/YYYY
@@ -95,12 +75,6 @@ function getThisWeekWorkouts(history) {
     });
 }
 
-
-
-// =========================
-// DISPLAY WORKOUT HISTORY
-// =========================
-
 function displayHistory() {
 
     const history =
@@ -116,8 +90,6 @@ function displayHistory() {
     if (!container) {
         return;
     }
-
-    // No workout history
     if (history.length === 0) {
 
         container.innerHTML = `
@@ -133,7 +105,6 @@ function displayHistory() {
 
     container.innerHTML = "";
 
-    // Latest workout first
     const reversedHistory =
         [...history].reverse();
 
@@ -145,7 +116,7 @@ function displayHistory() {
         let dateText =
             workout.date || "-";
 
-        // Convert ISO date
+    
         if (
             workout.date &&
             workout.date.includes("T")
@@ -196,10 +167,6 @@ function displayHistory() {
 }
 
 
-// =========================
-// SAVE WEIGHT
-// =========================
-
 function saveWeight() {
   const weightInput =
         document.getElementById("weightInput");
@@ -212,22 +179,20 @@ function saveWeight() {
         return;
     }
 
-    // Get existing weight history
+   
     const weightHistory =
         JSON.parse(
             localStorage.getItem("weightHistory")
         ) || [];
 
-    // Create new weight entry
     const newWeight = {
         date: new Date().toISOString(),
         weight: Number(weight)
     };
 
-    // Add new entry
     weightHistory.push(newWeight);
 
-    // Save complete history
+
     localStorage.setItem(
         "weightHistory",
         JSON.stringify(weightHistory)
@@ -246,11 +211,6 @@ function saveWeight() {
     displayWeightHistory();
 }
 
-
-// =========================
-// LOAD WEIGHT
-// =========================
-
 function loadWeight() {
 
     const savedWeight = localStorage.getItem("userWeight");
@@ -260,11 +220,6 @@ function loadWeight() {
             `Current weight: ${savedWeight} kg`;
     }
 }
-
-
-// =========================
-// WEEKLY WORKOUT PLAN
-// =========================
 
 function displayWeeklyPlan() {
 
@@ -422,7 +377,6 @@ function displayWeightHistory() {
 
     container.innerHTML = "";
 
-    // Latest entry first
     const reversedHistory =
         [...weightHistory].reverse();
 
@@ -434,7 +388,6 @@ function displayWeightHistory() {
 
         let changeText = "—";
 
-        // Compare with previous recorded weight
         if (index < reversedHistory.length - 1) {
 
             const previousWeight =

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>FitTrack - Progress</title>
+
+    <script>
+    const profile = localStorage.getItem("fitTrackProfile");
+
+    if (!profile) {
+        window.location.href = "setup.html";
+    }
+</script>
+
+    <link rel="stylesheet" href="css/style.css">
+   
+
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            FitTrack
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="workout.html">
+                Workout
+            </a>
+
+            <a href="progress.html">
+                Progress
+            </a>
+
+            <a href="goals.html">
+                Goals
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main class="container">
+
+
+        <!-- PAGE HEADER -->
+
+        <section class="workout-page-header">
+
+            <p class="section-label">
+                YOUR FITNESS JOURNEY
+            </p>
+
+            <h1>
+                Progress Tracking 📊
+            </h1>
+
+            <p>
+                Track your workouts and monitor your progress.
+            </p>
+
+        </section>
+
+
+
+        <!-- =========================
+             STATS
+        ========================== -->
+
+        <section class="stats-grid">
+
+
+            <!-- TOTAL WORKOUTS -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🏋️
+                </div>
+
+                <div>
+
+                    <h3>
+                        Total Workouts
+                    </h3>
+
+                    <h2 id="totalWorkouts">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CALORIES -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🔥
+                </div>
+
+                <div>
+
+                    <h3>
+                        Calories Burned
+                    </h3>
+
+                    <h2 id="totalCalories">
+                        0
+                    </h2>
+
+                    <p>
+                        kcal
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- THIS WEEK -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📅
+                </div>
+
+                <div>
+
+                    <h3>
+                        This Week
+                    </h3>
+
+                    <h2>
+
+                        <span id="weeklyWorkouts">
+                            0
+                        </span>
+
+                        / 6
+
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- GOAL -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🎯
+                </div>
+
+                <div>
+
+                    <h3>
+                        Goal Progress
+                    </h3>
+
+                    <h2>
+
+                        <span id="goalProgress">
+                            0
+                        </span>%
+
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             WEIGHT TRACKING
+        ========================== -->
+
+        <section class="progress-section">
+
+
+            <div class="section-title">
+
+                <div>
+
+                    <!-- <p>
+                        TRACK
+                    </p> -->
+
+                    <h2>
+                        Weight Tracking
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="weight-card">
+
+                <input
+                    type="number"
+                    id="weightInput"
+                    placeholder="Enter weight (kg)"
+                    step="0.1"
+                >
+
+
+                <button
+                    class="primary-button"
+                    onclick="saveWeight()"
+                >
+
+                    Save Weight
+
+                </button>
+
+            </div>
+
+
+            <p
+                id="savedWeight"
+                class="saved-weight"
+            >
+            </p>
+
+
+        </section>
+
+        <section class="weight-history-section">
+
+    <div class="section-title">
+
+        <div>
+            <!-- <p>WEIGHT LOG</p> -->
+
+            <h2>Weight History</h2>
+        </div>
+
+    </div>
+
+    <div class="history-card">
+
+        <div class="history-table">
+
+            <div class="history-row history-header weight-history-row">
+                <span>Date</span>
+                <span>Weight</span>
+                <span>Change</span>
+            </div>
+
+            <div id="weightHistoryList" class="weight-history-list">
+                <!-- Weight history will appear here -->
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+        <!-- =========================
+             WORKOUT HISTORY
+        ========================== -->
+
+    <section class="history-section">
+
+    <div class="section-title">
+        <div>
+            <!-- <p>ACTIVITY</p> -->
+            <h2>Workout History</h2>
+        </div>
+    </div>
+
+    <div class="history-card">
+
+        <div class="history-table">
+
+            <div class="history-row history-header">
+                <span>Date</span>
+                <span>Workout</span>
+                <span>Calories</span>
+                <span>Status</span>
+            </div>
+
+            <div id="workoutHistoryList">
+                <!-- Workout history will appear here -->
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+        <!-- =========================
+             WEEKLY PLAN
+        ========================== -->
+
+        <section class="progress-section">
+
+
+            <div class="section-title">
+
+                <div>
+
+                    <!-- <p>
+                        WEEKLY PLAN
+                    </p> -->
+
+                    <h2>
+                        Your Weekly Workout
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="weeklyPlan"
+                class="weekly-plan"
+            >
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+             Stay Consistent 💪
+        </p>
+
+    </footer>
+
+
+
+    <script src="js/progress.js"></script>
+
+</body>
+
+</html>

@@ -1,14 +1,13 @@
-// =========================
+ 
 // FITTRACK - GOALS
-// =========================
-
+ 
 const WEEKLY_GOAL = 6;
 const CALORIE_GOAL = 1500;
 
 
-// =========================
+ 
 // GET WORKOUT HISTORY
-// =========================
+ 
 
 function getWorkoutHistory() {
 
@@ -19,13 +18,13 @@ function getWorkoutHistory() {
 }
 
 
-// =========================
+ 
 // GET THIS WEEK'S WORKOUTS
-// =========================
+ 
 
-// =========================
+ 
 // GET THIS WEEK'S WORKOUTS
-// =========================
+ 
 
 function getThisWeekWorkouts(history) {
 
@@ -57,7 +56,7 @@ function getThisWeekWorkouts(history) {
 
 
         // ISO format
-        // Example: 2026-09-21T10:30:00
+        
         if (workout.date.includes("T")) {
 
             workoutDate =
@@ -67,7 +66,7 @@ function getThisWeekWorkouts(history) {
 
 
         // DD/MM/YYYY format
-        // Example: 21/09/2026
+        
         else if (workout.date.includes("/")) {
 
             const parts =
@@ -96,9 +95,9 @@ function getThisWeekWorkouts(history) {
 }
 
 
-// =========================
+ 
 // UPDATE WEEKLY GOAL
-// =========================
+ 
 
 function updateWeeklyGoal(weeklyWorkouts) {
 
@@ -182,10 +181,9 @@ function updateWeeklyGoal(weeklyWorkouts) {
 }
 
 
-// =========================
+ 
 // UPDATE CALORIE GOAL
-// =========================
-
+ 
 function updateCalorieGoal(weeklyWorkouts) {
 
     let calories = 0;
@@ -281,9 +279,9 @@ function updateCalorieGoal(weeklyWorkouts) {
 }
 
 
-// =========================
+ 
 // UPDATE CONSISTENCY GOAL
-// =========================
+ 
 
 function updateConsistencyGoal(weeklyWorkouts) {
 
@@ -373,9 +371,9 @@ function updateConsistencyGoal(weeklyWorkouts) {
 }
 
 
-// =========================
+ 
 // LOAD GOALS
-// =========================
+ 
 
 function loadGoals() {
 
@@ -403,10 +401,9 @@ function loadGoals() {
 
 }
 
-
-// =========================
+ 
 // PAGE LOAD
-// =========================
+ 
 
 document.addEventListener(
     "DOMContentLoaded",

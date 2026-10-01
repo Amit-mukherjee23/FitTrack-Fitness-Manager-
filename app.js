@@ -1,17 +1,15 @@
 console.log("FitTrack app.js loaded");
 
-// =========================
 // FITTRACK - DASHBOARD
-// =========================
 
 function startWorkout() {
     window.location.href = "workout.html";
 }
 
 
-// =========================
+
 // LOAD DASHBOARD DATA
-// =========================
+
 
 function loadDashboardData() {
 
@@ -87,9 +85,9 @@ function loadDashboardData() {
 }
 
 
-// =========================
+
 // THIS WEEK WORKOUTS
-// =========================
+
 
 function getThisWeekWorkouts(history) {
 
@@ -162,9 +160,9 @@ function getThisWeekWorkouts(history) {
 }
 
 
-// =========================
+
 // WEEKLY PROGRESS
-// =========================
+
 
 function updateWeeklyProgress(count, percentage) {
 
@@ -197,9 +195,9 @@ function updateWeeklyProgress(count, percentage) {
 }
 
 
-// =========================
+
 // TODAY'S WORKOUT
-// =========================
+
 
 const weeklyWorkout = {
 
@@ -298,9 +296,9 @@ const weeklyWorkout = {
 };
 
 
-// =========================
+
 // SHOW TODAY'S WORKOUT
-// =========================
+
 
 function loadTodayWorkout() {
 
@@ -437,9 +435,8 @@ function loadTodayWorkout() {
 }
 
 
-// =========================
+
 // PAGE LOAD
-// =========================
 
 document.addEventListener(
     "DOMContentLoaded",
@@ -477,9 +474,8 @@ function loadHomeGoalProgress() {
         );
             console.log("Weekly Workouts:", weeklyWorkouts);
 console.log("Progress Percentage:", percentage);
-        // =========================
+      
 // FITNESS JOURNEY GOAL
-// =========================
 
 const fitnessBar =
     document.getElementById(
@@ -546,9 +542,9 @@ if (fitnessText) {
 
 
 
-// =========================
+
 // LOAD PROFILE NAME ON HOME
-// =========================
+
 function loadHomeProfileName() {
 
     const profile =
@@ -565,9 +561,9 @@ function loadHomeProfileName() {
     }
 }
 
-// =========================
+
 // LOAD FITNESS GOAL ON HOME
-// =========================
+
 function loadHomeFitnessGoal() {
 
     const profile =

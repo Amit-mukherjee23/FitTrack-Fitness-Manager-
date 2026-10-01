@@ -1,6 +1,5 @@
-// =========================
+ 
 // FITTRACK - WORKOUT PAGE
-// =========================
 
 const weeklyWorkouts = {
 
@@ -380,10 +379,8 @@ function completeWorkout() {
     });
 }
 
-
-// =========================
 // REST TIMER
-// =========================
+
 
 let timerInterval;
 
@@ -451,9 +448,9 @@ function updateTimer() {
 }
 
 
-// =========================
+
 // WEEKLY PLAN
-// =========================
+
 
 function displayWeeklyPlan() {
 
@@ -555,9 +552,9 @@ function displayWeeklyPlan() {
 }
 
 
-// =========================
+
 // PAGE LOAD
-// =========================
+
 
 document.addEventListener(
     "DOMContentLoaded",
@@ -573,9 +570,9 @@ document.addEventListener(
 );
 
 
-// =========================
+
 // WORKOUT COUNTDOWN TIMER
-// =========================
+
 
 let workoutTimerInterval = null;
 let workoutTimeLeft = 0;
@@ -668,9 +665,9 @@ function startWorkoutTimer() {
 }
 
 
-// =========================
+
 // RUN TIMER
-// =========================
+
 
 function runWorkoutCountdown() {
 
@@ -716,9 +713,9 @@ function runWorkoutCountdown() {
 }
 
 
-// =========================
+
 // DISPLAY TIME
-// =========================
+
 
 function updateWorkoutTimerDisplay() {
 
@@ -744,9 +741,9 @@ function updateWorkoutTimerDisplay() {
 }
 
 
-// =========================
+
 // RESET TIMER
-// =========================
+
 
 function resetWorkoutTimer() {
 
@@ -789,9 +786,9 @@ function resetWorkoutTimer() {
 }
 
 
-// =========================
+
 // ENABLE INPUTS
-// =========================
+
 
 function enableWorkoutTimerInputs() {
 
